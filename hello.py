@@ -60,4 +60,4 @@ def index():
 
 @app.route('/login')
 def login():
-    return render_template('login.html', name=session.get('name'))
+    return render_template('login.html', name=session.get('name'), current_time=datetime.utcnow())
