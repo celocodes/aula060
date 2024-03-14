@@ -58,6 +58,6 @@ def index():
                            remote_host=session.get('host'),
                            current_time=datetime.utcnow())
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login')
 def login():
     return render_template('login.html', name=session.get('name'), current_time=datetime.utcnow())
