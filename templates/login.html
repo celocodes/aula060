@@ -4,14 +4,13 @@
 
 {% block page_content %}
 <div class="container">
-    <div class="container">
-        <form class="form-signin" action="/login" method="POST">
-            <h2 class="form-signin-heading">Login:</h1>
-            <div>{{ form.email(class="input-block-level", placeholder="Nome ou e-mail") }}</div>
-            <div>{{ form.password(class="input-block-level", placeholder="Senha") }}</div>
-            <div>{{ form.submit(class="btn btn-large btn-primary") }}</div>
+    <form class="form-signin" action="/login" method="POST">
+        {{ form.hidden_tag() }}
+        <h2 class="form-signin-heading">Login:</h1>
+        {{ form.email(class="input-block-level", placeholder="Nome ou e-mail") }}
+        {{ form.password(class="input-block-level", placeholder="Senha") }}
+        {{ form.submit(class="btn btn-large btn-primary") }}
     </form>
-    </div>
 </div>
 <br>
 <p>The local date and time is {{ moment(current_time).format('LLL') }}.</p>
