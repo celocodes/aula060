@@ -4,7 +4,7 @@
 
 {% block page_content %}
 <div class="page-header">
-    <form>
+    <form class="form-signin" action="/login" method="POST">
         <h1>Login:</h1>
         <div>{{ form.email(class="input-block-level", placeholder="Nome ou e-mail") }}</div>
         <div>{{ form.password(class="input-block-level", placeholder="Senha") }}</div>
