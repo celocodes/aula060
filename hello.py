@@ -65,4 +65,11 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
+    if form.validate_on_submit():
+        session['email'] = form.email.data
+        return redirect(url_for('loginResponse'))
     return render_template('login.html', form=form, current_time=datetime.utcnow())
+
+@app.route('/loginResponse', methods=['GET', 'POST'])
+def loginResponse():
+    return render_template('loginResponse.html', email=session.get['email'], current_time=datetime.utcnow())
