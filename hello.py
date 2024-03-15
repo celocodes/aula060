@@ -2,7 +2,7 @@ from flask import Flask, render_template, session, redirect, url_for, flash, req
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, SelectField
+from wtforms import StringField, SubmitField, SelectField, PasswordField
 from wtforms.validators import DataRequired
 from datetime import datetime
 from flask_moment import Moment
@@ -21,6 +21,10 @@ class NameForm(FlaskForm):
     discipline = SelectField(u'Informe a sua disciplina:', choices=[('dswa5', 'DSWA5'), ('dwba4', 'DWBA4'), ('GPSA5', 'Gestão de projetos')])
     submit = SubmitField('Submit')
 
+class LoginForm(FlaskForm):
+    email = StringField('Informe o seu nome ou e-mail', validators=[DataRequired()])
+    password = PasswordField('Informe a senha', validators=[DataRequired()])
+    submit = SubmitField('Enviar')
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -60,4 +64,5 @@ def index():
 
 @app.route('/login')
 def login():
-    return render_template('login.html', name=session.get('name'), current_time=datetime.utcnow())
+    form = LoginForm()
+    return render_template('login.html', form=form, current_time=datetime.utcnow())

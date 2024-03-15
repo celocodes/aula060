@@ -4,7 +4,11 @@
 
 {% block page_content %}
 <div class="page-header">
-    <h1>Você chegou no login, {{ name }}!</h1>
+    <form>
+        <h1>Login:</h1>
+        <div>{{ form.email(class="input-block-level") }}</div>
+        <div>{{ form.password(class="input-block-level") }}</div>
+    </form>
 </div>
 <br>
 <p>The local date and time is {{ moment(current_time).format('LLL') }}.</p>
