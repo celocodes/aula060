@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block head %}
+{{ super() }}
+<link href="/static/login.css" rel="stylesheet">
+{% endblock %}
+
 {% block title %}Flasky{% endblock %}
 
 {% block page_content %}
