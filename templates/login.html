@@ -6,8 +6,9 @@
 <div class="page-header">
     <form>
         <h1>Login:</h1>
-        <div>{{ form.email(class="input-block-level") }}</div>
-        <div>{{ form.password(class="input-block-level") }}</div>
+        <div>{{ form.email(class="input-block-level", placeholder="Nome ou e-mail") }}</div>
+        <div>{{ form.password(class="input-block-level", placeholder="Senha") }}</div>
+        <div>{{ form.submit(class="input-block-level") }}</div>
     </form>
 </div>
 <br>
