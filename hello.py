@@ -72,4 +72,4 @@ def login():
 
 @app.route('/loginResponse', methods=['GET', 'POST'])
 def loginResponse():
-    return render_template('loginResponse.html', email=session.get['email'], current_time=datetime.utcnow())
+    return render_template('loginResponse.html', email=session.get('email'), current_time=datetime.utcnow())
